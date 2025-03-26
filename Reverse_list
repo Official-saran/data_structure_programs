@@ -1,0 +1,47 @@
+import java.util.Scanner;
+class Node{
+    int roll;
+    Node nxt;
+}
+
+class Main {
+    public static void insert(Node head){
+        Node ob=new Node();
+        Scanner sc=new Scanner(System.in);
+        ob.roll=sc.nextInt();
+        ob.nxt=null;
+        Node l=head;
+        while(l.nxt!=null){
+            l=l.nxt;
+        }
+
+        l.nxt = ob;
+        ob.nxt=null;
+
+
+
+
+
+    }
+    public static void display(Node head){
+        Node t=head.nxt;
+        while(t!=null){
+            System.out.print(t.roll +"-->");
+            t=t.nxt;
+        }
+//
+    }
+    public static void main(String[] args) {
+        Node head=new Node();
+        head.nxt=null;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num =sc.nextInt();
+        for(int i = 0; i<num;i++){
+            insert(head);
+
+        }
+        display(head);
+
+    }
+}
