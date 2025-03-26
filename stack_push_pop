@@ -1,0 +1,53 @@
+
+import java.util.Scanner;
+
+class Node{
+    int data;
+    Node nxt;
+}
+
+class Main{
+    public static void push(Node head){
+        Node st=new Node();
+        Scanner sc= new Scanner(System.in);
+        st.data=sc.nextInt();
+        st.nxt=head.nxt;
+        head.nxt=st;
+
+    }
+    public static void peek(Node head){
+        Node t = head.nxt;
+        if(t.nxt!=null){
+            System.out.println(t.data);
+        }
+//        System.out.println(t.data);
+    }
+    public static void display(Node head){
+        Node t= head.nxt;
+        while(t!=null){
+            System.out.println(t.data);
+            System.out.println("-");
+            t=t.nxt;
+
+        }
+    }
+
+    public static void main(String[] args){
+        Node head= new Node();
+        head.nxt= null;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter stack count: ");
+        int num= sc.nextInt();
+        for(int i=0;i<num;i++){
+            push(head);
+        }
+        System.out.println(" The top of the element in the stact is : ");
+        peek(head);
+        System.out.println("Satck: ");
+        display(head);
+
+
+    }
+
+}
+
