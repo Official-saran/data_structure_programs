@@ -1,0 +1,93 @@
+//insert//position//delete//length.
+
+
+import java.util.Scanner;
+class Node{
+    int roll;
+    Node nxt;
+}
+
+
+public class Main {
+    public static void insert(Node head){
+
+        Scanner sc=new Scanner(System.in);
+        int pos=sc.nextInt();
+        Node p=head;
+        int c=0;
+        while(c<(pos- 1)&& p.nxt!=null){
+            c++;
+            p=p.nxt;
+
+        }
+        if(c==(pos- 1)){
+            Node ob=new Node();
+            ob.roll=sc.nextInt();
+            ob.nxt=p.nxt;
+            p.nxt=ob;
+        }
+
+    }
+    public static void delete(Node head){
+        Scanner sc=new Scanner(System.in);
+        System.out.println(" ");
+        System.out.println("Enter postion of delete node: ");
+        int pos=sc.nextInt();
+        int c=0;
+        Node p= head;
+        while(c<(pos-1) && p.nxt!=null)
+        {
+            p=p.nxt;
+            c++;
+        }
+
+        if(c==pos- 1){
+            p.nxt=p.nxt.nxt;
+        }
+    }
+
+
+    public static void display(Node head){
+        Node t=head.nxt;
+        int c=0;
+        while(t!=null){
+            System.out.print(t.roll +"-->");
+            c++;
+            t=t.nxt;
+        }
+        System.out.println();
+        System.out.println("length of list: "+ c);
+    }
+    public static void search(Node head){
+        Scanner sc=new Scanner(System.in);
+        int c=0;
+        System.out.println("Enter search elemnet:");
+        int e=sc.nextInt();
+        Node t=head.nxt;
+        while((t!=null) && (t.roll!=e)){
+            c++;
+            t=t.nxt;
+        }
+        if(t==null){
+            System.out.print("exeption error");
+        }
+        else{
+            System.out.print("the elemen is find...at position"+ (c +1));
+        }
+    }
+    public static void main(String[] args) {
+        Node head=new Node();
+        head.nxt=null;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num =sc.nextInt();
+        for(int i = 0; i<num;i++){
+            insert(head);
+        }
+        display(head);
+        //delete(head);
+        //display(head);
+        search(head);
+    }
+
+}
