@@ -1,0 +1,72 @@
+import java.util.Scanner;
+class Node{
+    int data;
+    Node nxt;
+}
+
+public class Main {
+
+    public static void insert(Node head){
+        Node ob=new Node();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter list data: ");
+        ob.data= sc.nextInt();
+        ob.nxt=null;
+        while(head.nxt!=null){
+            head=head.nxt;
+        }
+        head.nxt=ob;
+        ob.nxt=null;
+
+
+    }
+    public static void displaySum(Node head){
+        Node t= head.nxt;
+        int sumOfOdd=0;
+        int sumOfeven=0;
+        int c=0;
+        while(t!=null)
+        {
+            System.out.print(t.data+"-->");
+            if(c%2==0){
+                sumOfeven=sumOfeven + t.data;
+            }
+            else{
+                sumOfOdd=sumOfOdd + t.data;
+            }
+            c++;
+            t=t.nxt;
+        }
+        System.out.println(" ");
+        System.out.println("Sum of even elements in this given list: "+ sumOfeven);
+        System.out.println("Sum of odd elements in this given list: "+ sumOfOdd);
+
+    }
+
+    public static void search(Node head){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter your search element: ");
+        int e=sc.nextInt();
+        int c=0;
+        Node t=head;
+        while(t.nxt!=null&& t.data!=e){
+            t=t.nxt;
+            c++;
+        }
+        System.out.println("The element is present at the position of " + c );
+    }
+
+    public static void main(String[] args) {
+        Node head=new Node();
+        head.nxt=null;
+        Scanner c = new Scanner(System.in);
+        System.out.println("Enter list length: ");
+        int n= c.nextInt();
+        for(int i =0; i< n;i++){
+            insert(head);
+        }
+        displaySum(head);
+        search(head);
+
+    }
+}
